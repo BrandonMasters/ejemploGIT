@@ -25,6 +25,7 @@ html = driver.page_source
 fechas = []
 precios = []
 valores = []
+lista_nueva = []
 
 #Se crea una variable de la clase Beautifulsoup y se le pasa como argumento el str del html y se le indica que es html
 soup = BeautifulSoup(html, 'html.parser')
