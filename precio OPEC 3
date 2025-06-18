@@ -1,0 +1,22 @@
+#Programa que obtiene datos de la página datosmacroexpansion:
+#Importando librerías:
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from bs4 import BeautifulSoup
+import pandas as pd
+from datetime import datetime
+
+#Instalando ChromeDriverManager, si ya está instalado sólo crea la variable driver:
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+#Se almacena la direccion de la web en la variable url:
+url = "https://www.opec.org/basket/basketDayArchives.xml"
+
+#Fecha actual:
+fecha_archivo = datetime.now().date().strftime('%Y_%m_%d')
+
+#Con driver se realiza la petición get():
+driver.get(url)
+html = driver.page_source
+
